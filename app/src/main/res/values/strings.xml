@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MVVM-Dagger2-Retrofit-Room</string>
+    <string name="retry">Retry</string>
+    <string name="user_error">An error occurred while loading the user list</string>
+</resources>
