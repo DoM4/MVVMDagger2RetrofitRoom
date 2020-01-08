@@ -30,6 +30,7 @@ class UserListViewModel : BaseViewModel(){
     val errorOnClickListener = View.OnClickListener {
         loadUsers()
     }
+    val userResultList : MutableLiveData<List<User>> = MutableLiveData()
 
     init {
         loadUsers()
@@ -69,6 +70,7 @@ class UserListViewModel : BaseViewModel(){
 
     private fun onRetrieveUserListSuccess(result: List<User>?) {
         Log.d("UserListViewModel",result.toString())
+        userResultList.value = result
     }
 
     private fun onRetrieveUserListError(error: Throwable) {

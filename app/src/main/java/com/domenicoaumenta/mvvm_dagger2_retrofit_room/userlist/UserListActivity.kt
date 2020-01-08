@@ -1,16 +1,18 @@
-package com.domenicoaumenta.mvvm_dagger2_retrofit_room
+package com.domenicoaumenta.mvvm_dagger2_retrofit_room.userlist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.domenicoaumenta.mvvm_dagger2_retrofit_room.R
 import com.domenicoaumenta.mvvm_dagger2_retrofit_room.base.BaseActivty
+import com.domenicoaumenta.mvvm_dagger2_retrofit_room.model.User
 import com.domenicoaumenta.mvvm_dagger2_retrofit_room.ui.UserListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivty() {
+class UserListActivity : BaseActivty() {
 
     lateinit var viewModel: UserListViewModel
+    var usersAdapter: UsersAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +21,7 @@ class MainActivity : BaseActivty() {
         viewModel = ViewModelProviders.of(this).get(UserListViewModel::class.java)
 
         viewModel.loadingVisibility.observe(this,Observer<Int>{
-            visibility -> progressBar.visibility = visibility
+            visibility -> pbUserListActivity.visibility = visibility
         })
 
         viewModel.errorMessage.observe(this, Observer {
@@ -27,5 +29,17 @@ class MainActivity : BaseActivty() {
                     showError(errorMessage, viewModel.errorOnClickListener) else hideError()
         })
 
+        viewModel.userResultList.observe(this, Observer {
+            userList -> populateList(userList)
+        })
+
+    }
+
+    private fun populateList(userList : List<User>){
+        usersAdapter?.setUsers(userList) ?: run {
+            usersAdapter = UsersAdapter()
+            rvUserListActivity.adapter = usersAdapter
+            usersAdapter?.setUsers(userList)
+        }
     }
 }

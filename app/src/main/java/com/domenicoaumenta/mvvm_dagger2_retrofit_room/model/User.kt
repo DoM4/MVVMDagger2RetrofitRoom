@@ -7,37 +7,37 @@ import com.google.gson.annotations.SerializedName
 data class User(
     @SerializedName("about_me")
     @Expose
-    val about_me: String,
+    val aboutMe: String,
     @SerializedName("accept_rate")
     @Expose
-    val accept_rate: Int,
+    val acceptRate: Int,
     @SerializedName("account_id")
     @Expose
-    val account_id: Int,
+    val accountId: Int,
     @SerializedName("answer_count")
     @Expose
-    val answer_count: Int,
+    val answerCount: Int,
     @SerializedName("badge_counts")
     @Expose
-    val badge_counts: BadgeCounts,
+    val badgeCounts: BadgeCounts,
     @SerializedName("creation_date")
     @Expose
-    val creation_date: Int,
+    val creationDate: Int,
     @SerializedName("display_name")
     @Expose
-    val display_name: String,
+    val displayName: String,
     @SerializedName("down_vote_count")
     @Expose
-    val down_vote_count: Int,
+    val downVoteCount: Int,
     @SerializedName("is_employee")
     @Expose
-    val is_employee: Boolean,
+    val isEmployee: Boolean,
     @SerializedName("last_access_date")
     @Expose
-    val last_access_date: Int,
+    val lastAccessDate: Int,
     @SerializedName("last_modified_date")
     @Expose
-    val last_modified_date: Int,
+    val lastModifiedDate: Int,
     @SerializedName("link")
     @Expose
     val link: String,
@@ -46,41 +46,45 @@ data class User(
     val location: String,
     @SerializedName("profile_image")
     @Expose
-    val profile_image: String,
+    val profileImage: String,
     @SerializedName("question_count")
     @Expose
-    val question_count: Int,
+    val questionCount: Int,
     @SerializedName("reputation")
     @Expose
     val reputation: Int,
     @SerializedName("reputation_change_day")
     @Expose
-    val reputation_change_day: Int,
+    val reputationChangeDay: Int,
     @SerializedName("reputation_change_month")
     @Expose
-    val reputation_change_month: Int,
+    val reputationChangeMonth: Int,
     @SerializedName("reputation_change_quarter")
     @Expose
-    val reputation_change_quarter: Int,
+    val reputationChangeQuarter: Int,
     @SerializedName("reputation_change_week")
     @Expose
-    val reputation_change_week: Int,
+    val reputationChangeWeek: Int,
     @SerializedName("reputation_change_year")
     @Expose
-    val reputation_change_year: Int,
+    val reputationChangeYear: Int,
     @SerializedName("up_vote_count")
     @Expose
-    val up_vote_count: Int,
+    val upVoteCount: Int,
     @SerializedName("user_id")
     @Expose
-    val user_id: Int,
+    val userId: Int,
     @SerializedName("user_type")
     @Expose
-    val user_type: String,
+    val userType: String,
     @SerializedName("view_count")
     @Expose
-    val view_count: Int,
+    val viewCount: Int,
     @SerializedName("website_url")
     @Expose
-    val website_url: String
+    val websiteUrl: String,
+
+    var isFollowed: Boolean = false,
+
+    var isBlocked: Boolean = false
 )
