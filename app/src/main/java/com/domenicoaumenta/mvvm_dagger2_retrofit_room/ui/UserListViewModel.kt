@@ -45,10 +45,8 @@ class UserListViewModel : BaseViewModel(){
             .doOnComplete{onRetrievePostListFinish()}
             .subscribe({
                 result ->
-                run {
                     Log.d("UserListViewModel", result.toString())
                     onRetrieveUserListSuccess(result.users)
-                }
             },
                 {error -> onRetrieveUserListError(error)})
 

@@ -7,20 +7,13 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by domenicoaumenta on 2020-01-05.
  */
-class UserResponse {
+data class UserResponse (
     @SerializedName("items")
     @Expose
-    var users: List<User>? = null
+    var users: List<User>? = null,
     @SerializedName("hasMore")
-    var hasMore: Boolean? = null
+    var hasMore: Boolean? = null,
     @SerializedName("quotaMax")
-    var quotaMax: Int? = null
+    var quotaMax: Int? = null,
     @SerializedName("quotaRemaining")
-    var quotaRemaining: Int? = null
-
-    override fun toString(): String {
-        return "UserResponse(users=$users, hasMore=$hasMore, quotaMax=$quotaMax, quotaRemaining=$quotaRemaining)"
-    }
-
-
-}
+    var quotaRemaining: Int? = null)

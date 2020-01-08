@@ -18,9 +18,9 @@ class UserListActivity : BaseActivty() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProviders.of(this).get(UserListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this)[UserListViewModel::class.java]
 
-        viewModel.loadingVisibility.observe(this,Observer<Int>{
+        viewModel.loadingVisibility.observe(this,Observer{
             visibility -> pbUserListActivity.visibility = visibility
         })
 
