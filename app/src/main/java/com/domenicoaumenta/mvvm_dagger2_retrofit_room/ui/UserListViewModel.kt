@@ -38,7 +38,7 @@ class UserListViewModel : BaseViewModel(){
 
     private fun loadUsers(){
         subscription = userApi
-            .getTop100Users()
+            .getUsersByReputation(100)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe{onRetrievePostListStart()}
